@@ -68,14 +68,16 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $user = new User();
-        $user->name = $request->name;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->verification_code = sha1(time());
         $user->save();
 
         if($user != null){
-            MailController::sendSignupEmail($user->name, $user->email, $user->verification_code);
+            MailController::sendSignupEmail($user->username, $user->email, $user->verification_code);
             return redirect()->back()->with(session()->flash('alert-success', 'Your account has been created. Please check your email for the verification link!'));
         }
         return redirect()->back()->with(session()->flash('alert-danger', 'Oh no! Something went wrong :('));
