@@ -22,14 +22,14 @@
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="firstname" name="firstname" type="text" class="form-control">
+                                <input id="firstname" name="firstname" type="text" class="form-control" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">Last Name</label>
 
                             <div class="col-md-6">
-                                <input id="lastname" name="lastname" type="text" class="form-control">
+                                <input id="lastname" name="lastname" type="text" class="form-control" required>
                             </div>
                         </div>
 
