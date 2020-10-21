@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <img class="rounded mx-auto d-block" src="img/Comp424Logo.png" width="400px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="flash-message">
