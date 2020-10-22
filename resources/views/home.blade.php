@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
-                    {{ __('You are logged in!') }}
+                    <p>Current Login time {{ auth()->user()->current_login }}</p>
+                    <p>You last logged in at {{ auth()->user()->last_login }}</p>
                 </div>
             </div>
         </div>
