@@ -71,16 +71,16 @@ class RegisterController extends Controller
         $this->validate($request, [
             'g-recaptcha-response' => 'required|captcha',
         ]);
-
-        $user = new User();
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
-        $user->username = $request->username;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->verification_code = sha1(time());
-        $user->save();
-
+        if('g-recaptcha-response' !== ""){
+            $user = new User();
+            $user->firstname = $request->firstname;
+            $user->lastname = $request->lastname;
+            $user->username = $request->username;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->verification_code = sha1(time());
+            $user->save();
+        }
         if($user != null){
             MailController::sendSignupEmail($user->username, $user->email, $user->verification_code);
             return redirect()->back()->with(session()->flash('alert-success', 'Your account has been created. Please check your email for the verification link!'));
