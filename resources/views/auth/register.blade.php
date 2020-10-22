@@ -82,10 +82,15 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
-                        <div class="form-group row">
+                        
+                        <div class="form-group row{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                             <div class="col-md-6 offset-md-4">
-                                <div class="g-recaptcha" data-sitekey="6LfjCdoZAAAAAN-arKE5SFfSWxoLANoMIOb3I-8N"></div>
+                                {!! app('captcha')->display() !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block text-danger">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         
