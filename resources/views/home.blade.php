@@ -15,6 +15,7 @@
                     @endif
                     <p>Current Login time {{ auth()->user()->current_login }}</p>
                     <p>You last logged in at {{ auth()->user()->last_login }}</p>
+                    <p>Download the <a href="files/company_confidential_file.txt" download>company_confidential_file.txt.</a> <i class="fas fa-file-alt"></i></p>
                 </div>
             </div>
         </div>
