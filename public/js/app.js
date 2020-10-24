@@ -49886,10 +49886,20 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\data\Documents\GitHub\424Project\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\data\Documents\GitHub\424Project\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\jmeji\Documents\GitHub\424Project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\jmeji\Documents\GitHub\424Project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
 
 /******/ });
+
+function toggleVisibility(){
+    var x = document.getElementById("password");
+    if(x.type === "password"){
+        x.type = "text";
+    }
+    else {
+        x.type = "password";
+    }
+}
