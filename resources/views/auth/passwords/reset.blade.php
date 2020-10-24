@@ -45,13 +45,14 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input onkeyup="samePassword()" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <span id="validate-status"></span>
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button id="submit-button" type="submit" class="btn btn-primary">
                                     {{ __('Reset Password') }}
                                 </button>
                             </div>

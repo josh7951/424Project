@@ -49893,7 +49893,7 @@ module.exports = __webpack_require__(/*! C:\Users\jmeji\Documents\GitHub\424Proj
 /***/ })
 
 /******/ });
-
+// Password Visibility Toggle
 function toggleVisibility(){
     var x = document.getElementById("password");
     if(x.type === "password"){
@@ -49903,7 +49903,7 @@ function toggleVisibility(){
         x.type = "password";
     }
 }
-
+// Password Strength Meter
 const indicator = document.querySelector(".indicator");
 const input = document.querySelector("#password");
 const weak = document.querySelector(".weak");
@@ -49913,7 +49913,7 @@ const text = document.querySelector(".indicator-text");
 let regexWeak = /[a-z]/;
 let regexMedium = /\d+/;
 let regexStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
-function trigger(){
+function strengthMeter(){
     if(input.value != ""){
         indicator.style.display = "block";
         indicator.style.display = "flex";
@@ -49925,8 +49925,12 @@ function trigger(){
           text.style.display = "block";
           text.textContent = "Password Strength: Weak"
           text.classList.add("weak");
+          input.classList.add("is-invalid");
+          input.classList.remove("is-valid")
         }
         if(no == 2){
+          input.classList.add("is-valid");
+          input.classList.remove("is-invalid")
           medium.classList.add("active");
           text.style.display = "block";
           text.textContent = "Password Strength: Medium"
@@ -49952,4 +49956,75 @@ function trigger(){
         indicator.style.display = "none";
         text.style.display = "none";
     }
+}
+
+//Password Confirm
+function samePassword() {
+  var password1 = $("#password").val();
+  var password2 = $("#password-confirm").val();
+  if(password1 == password2) {
+       $("#validate-status").text("Passwords Match!");
+       $('#submit-button').prop('disabled', false);
+       $('#password-confirm').addClass('is-valid');
+       $('#password-confirm').removeClass('is-invalid');
+  }
+  else {
+       $("#validate-status").text("Passwords Do Not Match!");  
+       $('#submit-button').prop('disabled', true);
+       $('#password-confirm').addClass('is-invalid');
+       $('#password-confirm').removeClass('is-valid');
+  }
+}
+
+//email validation
+function validateEmail(email) {
+  const regexEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regexEmail.test(email);
+}
+
+function validateMail() {
+  const email = $("#email").val();
+
+  if (validateEmail(email)) {
+    $('#email').addClass('is-valid');
+    $('#email').removeClass('is-invalid');
+  } else {
+    $('#email').addClass('is-invalid');
+    $('#email').removeClass('is-valid');
+  }
+  return false;
+}
+
+function validateFName(){
+  var fname = $("#firstname").val();
+  if(fname != ""){
+    $('#firstname').addClass('is-valid');
+    $('#firstname').removeClass('is-invalid');
+  }
+  else{
+    $('#firstname').addClass('is-invalid');
+    $('#firstname').removeClass('is-valid');    
+  }
+}
+function validateLName(){
+  var lname = $("#lastname").val();
+  if(lname != ""){
+    $('#lastname').addClass('is-valid');
+    $('#lastname').removeClass('is-invalid');
+  }
+  else{
+    $('#lastname').addClass('is-invalid');
+    $('#lastname').removeClass('is-valid');    
+  }
+}
+function validateUName(){
+  var username = $("#name").val();
+  if(username != ""){
+    $('#name').addClass('is-valid');
+    $('#name').removeClass('is-invalid');
+  }
+  else{
+    $('#name').addClass('is-invalid');
+    $('#name').removeClass('is-valid');    
+  }
 }

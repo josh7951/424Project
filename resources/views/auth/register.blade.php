@@ -22,14 +22,14 @@
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="firstname" name="firstname" type="text" class="form-control" required>
+                                <input onkeyup="validateFName()" id="firstname" name="firstname" type="text" class="form-control" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">Last Name</label>
 
                             <div class="col-md-6">
-                                <input id="lastname" name="lastname" type="text" class="form-control" required>
+                                <input onkeyup="validateLName()" id="lastname" name="lastname" type="text" class="form-control" required>
                             </div>
                         </div>
 
@@ -37,7 +37,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">Username</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="username" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input onkeyup="validateUName()" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="username" value="{{ old('name') }}" required autocomplete="username" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input onkeyup="validateMail()" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -65,7 +65,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input onkeyup="trigger()" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input onkeyup="strengthMeter()" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                 <div class="indicator">
                                     <span class="weak"></span>
                                     <span class="medium"></span>
@@ -85,7 +85,8 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input onkeyup="samePassword()" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <span id="validate-status"></span>
                             </div>
                         </div>
                         
@@ -102,7 +103,7 @@
                         
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button id="submit-button" type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
                             <br>
