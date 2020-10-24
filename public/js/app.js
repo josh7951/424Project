@@ -49914,6 +49914,10 @@ let regexWeak = /[a-z]/;
 let regexMedium = /\d+/;
 let regexStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
 function strengthMeter(){
+    document.getElementById('password-confirm').value = '';
+    $('#password-confirm').addClass('is-invalid');
+    $('#submit-button').prop('disabled', true);
+    $("#validate-status").text("Password Confirmation Field Empty!");  
     if(input.value != ""){
         indicator.style.display = "block";
         indicator.style.display = "flex";
@@ -49963,16 +49967,22 @@ function samePassword() {
   var password1 = $("#password").val();
   var password2 = $("#password-confirm").val();
   if(password1 == password2) {
-       $("#validate-status").text("Passwords Match!");
-       $('#submit-button').prop('disabled', false);
-       $('#password-confirm').addClass('is-valid');
-       $('#password-confirm').removeClass('is-invalid');
+    $("#validate-status").text("Passwords Match!");
+    $('#submit-button').prop('disabled', false);
+    $('#password-confirm').addClass('is-valid');
+    $('#password-confirm').removeClass('is-invalid');
+  }
+  else if(password2 == ''){
+    $("#validate-status").text("Password Confirmation Field Empty!");  
+    $('#submit-button').prop('disabled', true);
+    $('#password-confirm').addClass('is-invalid');
+    $('#password-confirm').removeClass('is-valid');
   }
   else {
-       $("#validate-status").text("Passwords Do Not Match!");  
-       $('#submit-button').prop('disabled', true);
-       $('#password-confirm').addClass('is-invalid');
-       $('#password-confirm').removeClass('is-valid');
+    $("#validate-status").text("Passwords Do Not Match!");  
+    $('#submit-button').prop('disabled', true);
+    $('#password-confirm').addClass('is-invalid');
+    $('#password-confirm').removeClass('is-valid');
   }
 }
 
