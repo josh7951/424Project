@@ -65,8 +65,14 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                <input type="checkbox" onclick="toggleVisibility()"> Show Password
+                                <input onkeyup="trigger()" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <div class="indicator">
+                                    <span class="weak"></span>
+                                    <span class="medium"></span>
+                                    <span class="strong"></span>
+                                </div>
+                                <div class="indicator-text"></div>
+                                <span><input type="checkbox" onclick="toggleVisibility()"> Show Password</span>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -111,3 +117,56 @@
     </div>
 </div>
 @endsection
+
+<style>
+form .indicator {
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    display: none;
+}
+form .indicator span{
+    width: 100%;
+    height: 100%;
+    background: lightgrey;
+    border-radius: 5px;
+    position: relative;
+}
+form .indicator span.medium{
+    margin: 0 3px;
+}
+form .indicator span:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+form .indicator span.active.weak:before{
+    background-color: #ff4757;
+}
+form .indicator span.active.medium:before{
+    background-color: orange;
+}
+form .indicator span.active.strong:before{
+    background-color: #23ad5c;
+}
+form .indicator-text{
+    font-size: 14px;
+    font-weight: 500;
+    display: none;
+}
+form .indicator-text.weak{
+    color: #ff4757;
+}
+form .indicator-text.medium{
+    color: orange;
+}
+form .indicator-text.strong{
+    color: #23ad5c;
+}
+</style>
