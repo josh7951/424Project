@@ -48,6 +48,14 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="birthday" class="col-md-4 col-form-label text-md-right">Birthday</label>
+                            
+                            <div class="col-md-6">  
+                                <input type="date" id="birthday" class="form-control" name="birthday" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">

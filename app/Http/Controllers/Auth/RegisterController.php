@@ -76,6 +76,7 @@ class RegisterController extends Controller
             $user->firstname = $request->firstname;
             $user->lastname = $request->lastname;
             $user->username = $request->username;
+            $user->birthday = $request->birthday;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->verification_code = sha1(time());
