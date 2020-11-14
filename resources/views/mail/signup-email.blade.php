@@ -4,9 +4,11 @@ Welcome to Miraj Security!
 <br>
 Please click on the link below to verify your email and activate your account!
 <br><br>
-<!-- <a href="http://localhost/verify?code={{$email_data['verification_code']}}">Click Here!</a> For Testing-->
-<a href="http://54.183.98.69/verify?code={{$email_data['verification_code']}}">Click Here!</a>
+<a href="http://www.mirajsecurity.com/verify?code={{$email_data['verification_code']}}">Click Here!</a>
 <br><br>
 Thank you!
 <br>
 - Dev Team
+<br>
+<br>
+If the above link does not work, please use <a href="http://13.52.168.17/verify?code={{$email_data['verification_code']}}">this link instead</a>.
