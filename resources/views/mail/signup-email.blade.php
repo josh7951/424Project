@@ -4,7 +4,7 @@ Welcome to Miraj Security!
 <br>
 Please click on the link below to verify your email and activate your account!
 <br><br>
-<a href="http://www.mirajsecurity.com/verify?code={{$email_data['verification_code']}}">Click Here!</a>
+<a href="http://www.mirajsecurity.xyz/verify?code={{$email_data['verification_code']}}">Click Here!</a>
 <br><br>
 Thank you!
 <br>
