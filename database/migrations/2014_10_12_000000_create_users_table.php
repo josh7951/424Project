@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->timestamp('last_login')->nullable();
             $table->timestamp('current_login')->nullable();
-            $table->int('login_count')->default(0);
+            $table->integer('login_count')->default(0);
         });
     }
 
